@@ -1,0 +1,31 @@
+mixin content
+  section.title.inverse(data-background='#16a086')
+    h1 Concurrency in Go
+    h2 Paul Nechifor
+    .sub-info
+      p.left
+        a(href='http://www.infoiasi.ro/bin/Main/') Faculty of Computer Science
+      p.right 7 May 2014
+  section
+  section.title.inverse(data-background='#16a086')
+    h1 The End
+    h2 Questions?
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Concurrency in Go
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='apple-mobile-web-app-status-bar-style', content='black-translucent')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+    link(rel='stylesheet', href='reveal/reveal.min.css')
+    link(rel='stylesheet', href='style.css')
+  body
+    .reveal
+      .slides
+        +content()
+    script(src='reveal/head.min.js')
+    script(src='reveal/reveal.min.js')
+    script(src='js/highlight.js')
+    script(src='script.js')
