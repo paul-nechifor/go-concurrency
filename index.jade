@@ -16,10 +16,33 @@ mixin content
       li conclusion and summary
   section
     h2 About Go
+    ul
+      li Released in 2009, version 1.0 in 2012.
+  section
+    h2 Syntax
+    ul
+      li Similar to C.
+      li Only looping construct is <code>for</code> (includes range loops).
+      li Generally safer constructs (no <code>break</code> in
+        | <code>switch</code>).
+      li Less verbosity (fewer parenthesis and mostly no semicolons).
+      li Uses <code>:=</code> for assignment and type inferrence.
   section
     h2 Concurrency Aproach
+    ul
+      li <strong>concurrency</strong>: computations executing in overlaping time
+        | periods
+      li <strong>parallelism</strong>: use of multiple execution units
+      li <strong>coroutines</strong>: generalization of subrutines with multiple
+        | points for suspending and resuming execution
+      li Go uses both for concurrency.
   section
     h2 Goroutines
+    ul
+      li light-weight processes (not coroutines)
+      li multiplexed over native threads
+      li has own call stack (heap allocated, fragmented, extensible)
+      li 100000s are practical
   section
     h2 Channels
   section
@@ -36,6 +59,13 @@ mixin content
     h2 Summary
   section
     h2 References
+    - var links = []; // No multiline array support in Jade.
+    - links.push('golang.org/doc/effective_go.html');
+    - links.push('en.wikipedia.org/wiki/Light-weight_process');
+    ul
+      each link in links
+        li
+          a(href='http://' + link)= link
   section.title.inverse(data-background='#16a086')
     h1 The End
     h2 Questions?
