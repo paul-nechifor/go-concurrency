@@ -37,6 +37,11 @@ mixin content
         | points for suspending and resuming execution
       li Go uses both for concurrency.
   section
+    ul
+      li Inspired by Hoare's Communicating Sequential Processes (CSP).
+      li "Erlang takes some syntax from the CSP model, but with different semantics."
+      li "Go takes the semantics but not the syntax."
+  section
     h2 Goroutines
     ul
       li light-weight processes (not coroutines)
@@ -44,7 +49,70 @@ mixin content
       li has own call stack (heap allocated, fragmented, extensible)
       li 100000s are practical
   section
+    h2 Comparison
+    ul
+      li Unlike Node.js, Python*, and Ruby*, Go is fully parallel.
+    p *Have native threads but use a global interpreter lock.
+  section
+    pre
+      code.big-pre.go.
+        package main
+        import (
+          "fmt"
+          "time"
+        )
+        func hello(s string) {
+          for {
+            fmt.Println("hello", s)
+            time.Sleep(time.Second / 10)
+          }
+        }
+        func main() {
+          go hello("world")
+          time.Sleep(time.Second)
+        }
+  section
+    ul
+      li Prints <code>"hello world"</code> about 10 times.
+      li Program exits when <code>main</code> finishes.
+      li This is unlike Java (where all non-daemon threads must end for the
+        | program to end), or JavaScript (where the implicit event loop must be
+        | empty).
+  section
     h2 Channels
+    ul
+      li In the original CSP (as in Erlang) processes comunicate by name.
+      li In Go, goroutines communicate through unnamed channels.
+      li Sending and receiving from channels are blocking operations.
+
+  section
+    p Basic channel communication:
+    pre
+      code.big-pre.go.
+        func other(c chan string) {
+          c <- "Hello."
+        }
+        func main() {
+          c := make(chan string)
+          go other(c)
+          value := <-c
+          fmt.Println(value)
+        }
+  section
+    pre
+      code.big-pre.go.
+        func main() {
+          c := make(chan string)
+          c <- "Hello." // Deadlock here.
+          value := <-c
+          fmt.Println(value)
+        }
+    ul
+      li If the same code is written in a single function, Go detects the
+        | deadlock at runtime.
+    pre
+      code.big-pre.
+        throw: all goroutines are asleep - deadlock!
   section
     h2 Select
   section
@@ -60,8 +128,10 @@ mixin content
   section
     h2 References
     - var links = []; // No multiline array support in Jade.
+    - links.push('en.wikipedia.org/wiki/Go_(programming_language)');
     - links.push('golang.org/doc/effective_go.html');
     - links.push('en.wikipedia.org/wiki/Light-weight_process');
+    - links.push('www.informit.com/articles/article.aspx?p=1768317');
     ul
       each link in links
         li
