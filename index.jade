@@ -127,6 +127,45 @@ mixin content
         c := make(chan string, 10)
   section
     h2 Select
+    ul
+      li Similar to <code>switch</code> statement, except cases refer to receive
+        | or send operations.
+      li Execution blocks until one operation can be performed.
+    pre
+      code.big-pre.go.
+        select {
+        case v := <-c1:
+          fmt.Println("received:", v);
+        case c2 <- "hello":
+          fmt.Println("sent hello to c2");
+        case c3 <- 55:
+          fmt.Println("sent 55 to c3");
+        }
+  section
+    p Example pseudorandom send:
+    pre
+      code.big-pre.go.
+        func send(c chan int) {
+          for {
+            select {
+              case c <- 0:
+              case c <- 1:
+            }
+          }
+        }
+        func main() {
+          c := make(chan int)
+          go send(c)
+          for i := 0; i < 40; i++ {
+            fmt.Printf("%d", <-c)
+          }
+        }
+  section
+    ul
+      li When there are multiple possible operations, one is choosen
+        | pseudorandomly.
+    pre
+      code.big-pre 1110100000001011011000010100101000101110
   section
     h2 Patterns
     ul
@@ -144,6 +183,7 @@ mixin content
     - links.push('golang.org/doc/effective_go.html');
     - links.push('en.wikipedia.org/wiki/Light-weight_process');
     - links.push('www.informit.com/articles/article.aspx?p=1768317');
+    - links.push('golang.org/ref/spec');
     ul
       each link in links
         li
