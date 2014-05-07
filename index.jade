@@ -210,6 +210,56 @@ mixin content
       li quit channel
       li error handling
   section
+    h2 Generator
+    ul
+      li Generators usually are simpler coroutines.
+      li In Go, the generator pattern can be used to produce computationally
+        | expensive results.
+      li The pattern function makes a channel, lauches a goroutine with the
+        | channel as a closure and returns the channel.
+  section
+    pre
+      code.big-pre.go.
+        func gen(total int) chan string {
+          c := make(chan string)
+          go func() {
+            for i := 0; i < total; i++ {
+              c <- fmt.Sprintf("result %d", i)
+            }
+            close(c)
+          }()
+          return c
+        }
+        func main() {
+          c := gen(10)
+          for {
+            if r, ok := <-c; ok {
+              fmt.Println(r)
+            } else {
+              return
+            }
+          }
+        }
+  section
+    p Simplified by using the range clause for channels.
+    pre
+      code.big-pre.go.
+        func gen(total int) chan string {
+          c := make(chan string)
+          go func() {
+            for i := 0; i < total; i++ {
+              c <- fmt.Sprintf("result %d", i)
+            }
+            close(c)
+          }()
+          return c
+        }
+        func main() {
+          for r := range gen(10) {
+            fmt.Println(r)
+          }
+        }
+  section
     h2 Conclusion
     ul
       li Go's model is simpler than dealing with threads, locks, semaphores,
@@ -225,6 +275,7 @@ mixin content
     - links.push('en.wikipedia.org/wiki/Go_(programming_language)');
     - links.push('en.wikipedia.org/wiki/Light-weight_process');
     - links.push('www.informit.com/articles/article.aspx?p=1768317');
+    - links.push('www.golangpatterns.info/concurrency');
     ul
       each link in links
         li
