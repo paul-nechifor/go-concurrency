@@ -10,7 +10,7 @@ mixin content
     h2 Outline
     ul
       li description of Go
-      li concurrency aproach
+      li concurrency approach
       li concurrency language features
       li concurrency patterns
       li conclusion and summary
@@ -20,7 +20,7 @@ mixin content
       li released in 2009, version 1.0 in 2012
       li a <strong>"server software"</strong> language
       li is <strong>compiled</strong> (not interpreted, not JITted) for multiple
-        | architecures and OSes
+        | architectures and OSes
       li only <strong>garbage collected</strong>
       li has lambdas, closures
   section
@@ -28,23 +28,24 @@ mixin content
     ul
       li similar to C, but cleaner
       li less verbosity (fewer parenthesis and mostly no semicolons)
-      li uses <code>:=</code> for assignment and type inferrence
+      li uses <code>:=</code> for assignment and type inference
       li only looping construct is <code>for</code> (includes range loops)
       li generally safer constructs (e.g. no <code>break</code> in
         | <code>switch</code>)
   section
-    h2 Concurrency Aproach
+    h2 Concurrency Approach
     ul
-      li <strong>concurrency</strong>: computations executing in overlaping time
-        | periods
+      li <strong>concurrency</strong>: computations executing in overlapping
+        | time periods
       li <strong>parallelism</strong>: use of multiple execution units
-      li <strong>coroutines</strong>: generalization of subrutines with multiple
-        | points for suspending and resuming execution
+      li <strong>coroutines</strong>: generalization of subroutines with
+        | multiple points for suspending and resuming execution
       li Go uses both for concurrency.
   section
     ul
       li Inspired by Hoare's Communicating Sequential Processes (CSP).
-      li "Erlang takes some syntax from the CSP model, but with different semantics."
+      li "Erlang takes some syntax from the CSP model, but with different
+        | semantics."
       li "Go takes the semantics but not the syntax."
   section
     h2 Goroutines
@@ -86,7 +87,7 @@ mixin content
   section
     h2 Channels
     ul
-      li In the original CSP (as in Erlang) processes comunicate by name.
+      li In the original CSP (as in Erlang) processes communicate by name.
       li In Go, goroutines communicate through unnamed channels.
       li Sending and receiving from channels are blocking operations (for the
         | goroutines).
@@ -232,7 +233,7 @@ mixin content
         }
   section
     ul
-      li When there are multiple possible operations, one is choosen
+      li When there are multiple possible operations, one is chosen
         | pseudorandomly.
     pre
       code.big-pre.no-highlight 1110100000001011011000010100101000101110
@@ -248,7 +249,7 @@ mixin content
       li Generators usually are simpler coroutines.
       li In Go, the generator pattern can be used to produce computationally
         | expensive results.
-      li The pattern function makes a channel, lauches a goroutine with the
+      li The pattern function makes a channel, launches a goroutine with the
         | channel as a closure and returns the channel.
   section
     pre
@@ -306,7 +307,7 @@ mixin content
   section
     p Disadvantages:
     ul
-      li lack of exceptions can make it more verbose and repettitive
+      li lack of exceptions can make it more verbose and repetitive
       li lack of generics makes it less type-safe
       li lack of JITting can make it slower than Java
   section
