@@ -126,6 +126,37 @@ mixin content
       code.big-pre.go.
         c := make(chan string, 10)
   section
+    h2 Multiple Receivers
+    ul
+      li It's trivial to implement a thread pool pattern.
+    pre
+      code.big-pre.go.
+        func worker(id int, c chan string) {
+          for {
+            fmt.Println("worker", id, <-c)
+          }
+        }
+        func main() {
+          c := make(chan string)
+          go worker(0, c)
+          go worker(1, c)
+          for i := 0; i < 10; i++ {
+            c <- fmt.Sprintf("message %d", i)
+          }
+        }
+  section
+    pre
+      code.big-pre.no-highlight.
+        worker 0 message 0
+        worker 0 message 2
+        worker 1 message 1
+        worker 0 message 3
+        worker 0 message 5
+        worker 1 message 4
+        worker 0 message 6
+        worker 1 message 7
+        worker 0 message 8
+  section
     h2 Select
     ul
       li Similar to <code>switch</code> statement, except cases refer to receive
