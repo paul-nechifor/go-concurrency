@@ -27,6 +27,7 @@ mixin content
         | <code>switch</code>).
       li Less verbosity (fewer parenthesis and mostly no semicolons).
       li Uses <code>:=</code> for assignment and type inferrence.
+      li Has: function literals, ...
   section
     h2 Concurrency Aproach
     ul
@@ -83,8 +84,10 @@ mixin content
     ul
       li In the original CSP (as in Erlang) processes comunicate by name.
       li In Go, goroutines communicate through unnamed channels.
-      li Sending and receiving from channels are blocking operations.
-
+      li Sending and receiving from channels are blocking operations (for the
+        | goroutines).
+      li This ties together communication and synchronization in a natural way.
+      li Channels can be closed, but it is often unnecessary to do do so.
   section
     p Basic channel communication:
     pre
@@ -113,6 +116,15 @@ mixin content
     pre
       code.big-pre.
         throw: all goroutines are asleep - deadlock!
+  section
+    h2 Buffered Channels
+    ul
+      li Channels are unbuffered/blocking/synchronous by default.
+      li Buffered channels are created by specifying the number of elements to
+        | hold before blocking in <code>make</code>.
+    pre
+      code.big-pre.go.
+        c := make(chan string, 10)
   section
     h2 Select
   section
