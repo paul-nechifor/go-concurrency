@@ -293,13 +293,22 @@ mixin content
           }
         }
   section
-    h2 Conclusion
+    h2 Conclusions
+    p Advantages:
     ul
       li Go's model is simpler than dealing with threads, locks, semaphores,
-        | and the rest.
-      li Lack of exceptions and generics make the language more verbose.
+        | and the rest
+      li more intuitive than dealing with callbacks as in Node.js
+      li memory allocation can be faster since structures can be embedded in a
+        | single zone (one allocation call) unlike Java and others
+      li can use parallelism effectively
+      li quick compilation, fast startup
   section
-    h2 Summary
+    p Disadvantages:
+    ul
+      li lack of exceptions can make it more verbose and repettitive
+      li lack of generics makes it less type-safe
+      li lack of JITting can make it slower than Java
   section
     h2 References
     - var links = []; // No multiline array support in Jade.
