@@ -17,17 +17,21 @@ mixin content
   section
     h2 About Go
     ul
-      li Released in 2009, version 1.0 in 2012.
+      li released in 2009, version 1.0 in 2012
+      li a <strong>"server software"</strong> language
+      li is <strong>compiled</strong> (not interpreted, not JITted) for multiple
+        | architecures and OSes
+      li only <strong>garbage collected</strong>
+      li has lambdas, closures
   section
     h2 Syntax
     ul
-      li Similar to C.
-      li Only looping construct is <code>for</code> (includes range loops).
-      li Generally safer constructs (no <code>break</code> in
-        | <code>switch</code>).
-      li Less verbosity (fewer parenthesis and mostly no semicolons).
-      li Uses <code>:=</code> for assignment and type inferrence.
-      li Has: function literals, ...
+      li similar to C, but cleaner
+      li less verbosity (fewer parenthesis and mostly no semicolons)
+      li uses <code>:=</code> for assignment and type inferrence
+      li only looping construct is <code>for</code> (includes range loops)
+      li generally safer constructs (e.g. no <code>break</code> in
+        | <code>switch</code>)
   section
     h2 Concurrency Aproach
     ul
@@ -114,7 +118,7 @@ mixin content
       li If the same code is written in a single function, Go detects the
         | deadlock at runtime.
     pre
-      code.big-pre.
+      code.big-pre.no-highlight.
         throw: all goroutines are asleep - deadlock!
   section
     h2 Buffered Channels
@@ -172,6 +176,8 @@ mixin content
         case c3 <- 55:
           fmt.Println("sent 55 to c3");
         }
+    ul
+      li If a default case exists, it is executed and the select is not blocked.
   section
     p Example pseudorandom send:
     pre
@@ -196,7 +202,7 @@ mixin content
       li When there are multiple possible operations, one is choosen
         | pseudorandomly.
     pre
-      code.big-pre 1110100000001011011000010100101000101110
+      code.big-pre.no-highlight 1110100000001011011000010100101000101110
   section
     h2 Patterns
     ul
@@ -205,16 +211,20 @@ mixin content
       li error handling
   section
     h2 Conclusion
+    ul
+      li Go's model is simpler than dealing with threads, locks, semaphores,
+        | and the rest.
+      li Lack of exceptions and generics make the language more verbose.
   section
     h2 Summary
   section
     h2 References
     - var links = []; // No multiline array support in Jade.
-    - links.push('en.wikipedia.org/wiki/Go_(programming_language)');
+    - links.push('golang.org/ref/spec');
     - links.push('golang.org/doc/effective_go.html');
+    - links.push('en.wikipedia.org/wiki/Go_(programming_language)');
     - links.push('en.wikipedia.org/wiki/Light-weight_process');
     - links.push('www.informit.com/articles/article.aspx?p=1768317');
-    - links.push('golang.org/ref/spec');
     ul
       each link in links
         li
