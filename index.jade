@@ -294,6 +294,36 @@ mixin content
           }
         }
   section
+    h2 Quit Channel
+    pre
+      code.big-pre.go.
+        func fn(msg string) (out chan string, quit chan bool) {
+          out, quit = make(chan string), make(chan bool)
+          go func() {
+            for i := 0; ; i++ {
+              time.Sleep(time.Duration(rand.Intn(1000)) * time.Millisecond)
+              select {
+              case out <- fmt.Sprintf("%s %d", msg, i):
+              case <-quit: return
+              }
+            }
+          }()
+          return
+        }
+  section
+    pre
+      code.big-pre.go.
+        func main() {
+          result, quit := fn("result")
+          for {
+            fmt.Println(<-result)
+            if rand.Intn(2) == 0 {
+              quit <- true
+              break
+            }
+          }
+        }
+  section
     h2 Conclusions
     p Advantages:
     ul
@@ -315,6 +345,7 @@ mixin content
     - var links = []; // No multiline array support in Jade.
     - links.push('golang.org/ref/spec');
     - links.push('golang.org/doc/effective_go.html');
+    - links.push('talks.golang.org/2012/concurrency.slide');
     - links.push('en.wikipedia.org/wiki/Go_(programming_language)');
     - links.push('en.wikipedia.org/wiki/Light-weight_process');
     - links.push('www.informit.com/articles/article.aspx?p=1768317');
