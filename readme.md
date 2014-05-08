@@ -12,7 +12,7 @@ Get the dependencies:
 
 Build it:
 
-    cake
+    cake build
 
 ## License
 
