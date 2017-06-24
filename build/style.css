@@ -1,0 +1,284 @@
+@import url("http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic,700italic|Ubuntu:400,700,400italic,700italic");
+body {
+  background: #fff;
+}
+::selection {
+  color: #fff;
+  background: rgba(79,64,28,0.99);
+  text-shadow: none;
+}
+.reveal {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #000;
+}
+.reveal a:not(.image) {
+  color: #a2650b;
+  text-decoration: none;
+  -webkit-transition: color 0.15s ease;
+  -moz-transition: color 0.15s ease;
+  -ms-transition: color 0.15s ease;
+  -o-transition: color 0.15s ease;
+  transition: color 0.15s ease;
+}
+.reveal a:not(.image):hover {
+  color: #c0a86e;
+  text-shadow: none;
+  border: none;
+}
+.reveal a:hover img {
+  background: rgba(255,255,255,0.2);
+  border-color: #8b743d;
+  box-shadow: 0 0 20px rgba(0,0,0,0.55);
+}
+.reveal .roll span:after {
+  color: #fff;
+  background: #564826;
+}
+.reveal section img {
+  margin: 15px 0px;
+  background: rgba(255,255,255,0.12);
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.reveal .controls div.navigate-left,
+.reveal .controls div.navigate-left.enabled {
+  border-right-color: #ccc;
+}
+.reveal .controls div.navigate-right,
+.reveal .controls div.navigate-right.enabled {
+  border-left-color: #ccc;
+}
+.reveal .controls div.navigate-up,
+.reveal .controls div.navigate-up.enabled {
+  display: none;
+}
+.reveal .controls div.navigate-down,
+.reveal .controls div.navigate-down.enabled {
+  display: none;
+}
+.reveal ul {
+  margin-left: 1.5em;
+}
+.reveal .progress {
+  background: rgba(0,0,0,0.2);
+}
+.reveal .progress span {
+  background: #8b743d;
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -ms-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -o-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+.reveal pre {
+  font-size: 0.8em;
+  box-shadow: none;
+  width: 95%;
+}
+.reveal pre code {
+  padding: 10px;
+  background: #f8fae1;
+  display: block;
+  max-height: none;
+  line-height: 1.1;
+  font-family: 'Ubuntu Mono';
+}
+.reveal pre code.big-pre {
+  font-size: 32px;
+}
+.reveal pre.inline {
+  width: auto;
+  display: inline;
+}
+.reveal pre.inline code {
+  display: inline;
+  vertical-align: 0;
+}
+.reveal table {
+  margin: 10px auto;
+}
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: 0 0 20px 0;
+  color: #000;
+  font-weight: 700;
+  line-height: 0.9em;
+  letter-spacing: -0.03em;
+  text-transform: none;
+  text-shadow: none;
+}
+.reveal .inverse h1,
+.reveal .inverse h2,
+.reveal .inverse h3,
+.reveal .inverse h4,
+.reveal .inverse h5,
+.reveal .inverse h6 {
+  color: #fff;
+}
+.reveal p,
+.reveal li,
+.reveal td {
+  font-size: 40px;
+  line-height: 50px;
+}
+.reveal li {
+  margin-bottom: 20px;
+}
+.reveal .title h1 {
+  font-size: 160px;
+  line-height: 1;
+  padding-bottom: 50px;
+}
+.reveal .title h2 {
+  font-size: 80px;
+}
+.reveal .title h1,
+.reveal .title h2 {
+  letter-spacing: 4px;
+}
+.reveal .sub-info {
+  margin-top: 80px;
+}
+.reveal .sub-info .left {
+  float: left;
+}
+.reveal .sub-info .right {
+  float: right;
+}
+.reveal .title.inverse h1,
+.reveal .title.inverse h2 {
+  text-shadow: 5px 4px 0 #1bbc9b, 10px 9px 0 rgba(0,0,0,0.15);
+}
+.reveal .title.inverse .sub-info {
+  color: #fff;
+}
+.reveal .title.inverse .sub-info a {
+  color: #fff;
+}
+.reveal .plot {
+  height: 800px;
+  max-width: none;
+  max-height: none;
+  margin: -40px 0 0 0;
+}
+.reveal .img-classif {
+  padding: 0 5px;
+  width: 240px;
+}
+.reveal .img-classif-small {
+  padding: 0 5px;
+  width: 200px;
+}
+.print-pdf .reveal .title h1 {
+  font-size: 140px;
+}
+.print-pdf .reveal pre code.big-pre {
+  font-size: 25px;
+}
+code .comment,
+code .template_comment,
+code .diff .header,
+code .javadoc {
+  color: #998;
+  font-style: italic;
+}
+code .keyword,
+code .css .rule .keyword,
+code .winutils,
+code .javascript .title,
+code .nginx .title,
+code .subst,
+code .request,
+code .status {
+  color: #333;
+  font-weight: bold;
+}
+code .number,
+code .hexcolor,
+code .ruby .constant {
+  color: #099;
+}
+code .string,
+code .tag .value,
+code .phpdoc,
+code .tex .formula {
+  color: #d14;
+}
+code .title,
+code .id,
+code .coffeescript .params,
+code .scss .preprocessor {
+  color: #900;
+  font-weight: bold;
+}
+code .javascript .title,
+code .lisp .title,
+code .clojure .title,
+code .subst {
+  font-weight: normal;
+}
+code .class .title,
+code .haskell .type,
+code .vhdl .literal,
+code .tex .command {
+  color: #458;
+  font-weight: bold;
+}
+code .tag,
+code .tag .title,
+code .rules .property,
+code .django .tag .keyword {
+  color: #000080;
+  font-weight: normal;
+}
+code .attribute,
+code .variable,
+code .lisp .body {
+  color: #008080;
+}
+code .regexp {
+  color: #009926;
+}
+code .symbol,
+code .ruby .symbol .string,
+code .lisp .keyword,
+code .tex .special,
+code .prompt {
+  color: #990073;
+}
+code .built_in,
+code .lisp .title,
+code .clojure .built_in {
+  color: #0086b3;
+}
+code .preprocessor,
+code .pragma,
+code .pi,
+code .doctype,
+code .shebang,
+code .cdata {
+  color: #999;
+  font-weight: bold;
+}
+code .deletion {
+  background: #fdd;
+}
+code .addition {
+  background: #dfd;
+}
+code .diff .change {
+  background: #0086b3;
+}
+code .chunk {
+  color: #aaa;
+}
