@@ -2,6 +2,6 @@
   "name": "go-concurrency",
   "version": "0.0.0",
   "dependencies": {
-    "reveal.js": ">=2.6.0"
+    "reveal.js": "2.6.0"
   }
 }
