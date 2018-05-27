@@ -146,8 +146,16 @@ body {
 .reveal .title h2 {
   letter-spacing: 4px;
 }
+.reveal .main-links {
+  font-size: 15px;
+  margin-top: 40px;
+  color: #fff;
+}
+.reveal .main-links a {
+  color: #fff;
+}
 .reveal .sub-info {
-  margin-top: 80px;
+  margin-top: 40px;
 }
 .reveal .sub-info .left {
   float: left;

@@ -2,6 +2,14 @@ mixin content
   section.title.inverse(data-background='#16a086')
     h1 Concurrency in Go
     h2 Paul Nechifor
+    p.main-links
+      a(href='/') Home
+      = ' • '
+      a(href='/blog') Blog
+      = ' • '
+      a(href='/projects') Projects
+      = ' • '
+      a(href='https://twitter.com/PaulNechifor') Twitter
     .sub-info
       p.left
         a(href='http://www.infoiasi.ro/bin/Main/') Faculty of Computer Science
@@ -364,9 +372,12 @@ html(lang='en')
   head
     meta(charset='utf-8')
     title Concurrency in Go
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    meta(name='description', content='My presentation about Go concurrency.')
+    link(rel='apple-touch-icon', href='/favicon152.png')
     meta(name='apple-mobile-web-app-capable', content='yes')
     meta(name='apple-mobile-web-app-status-bar-style', content='black-translucent')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
     link(rel='stylesheet', href='reveal/reveal.min.css')
     link(rel='stylesheet', href='style.css')
   body
